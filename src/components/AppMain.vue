@@ -16,8 +16,27 @@ export default {
 </script>
 
 <template>
-    QUESTO E' APPMAIN
-    <AppFilmCard />
+    <div class="container">
+        <div class="row display-flex">
+            <div class="col-3">
+                <AppFilmCard />
+            </div>
+            <div class="col-3">
+                <AppFilmCard />
+            </div>
+            <div class="col-3">
+                <AppFilmCard />
+            </div>
+            <div class="col-3">
+                <AppFilmCard />
+            </div>
+
+
+        </div>
+
+
+    </div>
+
 
 </template>
 

@@ -13,7 +13,15 @@ export default {
 </script>
 
 <template>
-    QUESTO E' APPSEARCH
+    <DIV class="container">
+        <DIV class="row d-flex justify-content-between align-items-center">
+            <div id="logo" class="col-3">BOOLFLIX</div>
+            <div class="col-3"><input type="text" placeholder="Cerca un Film o una Serie Tv"></div>
+
+        </DIV>
+    </DIV>
+
+
 
 </template>
 
@@ -22,4 +30,22 @@ export default {
 @use 'src/style/general.scss' as *;
 // Importa le variabili degli stili
 @use 'src/style/partials/_variables.scss' as *;
+
+.container {
+    .row {
+        div#logo {
+            font-size: 2rem;
+        }
+
+        div {
+            margin: 20px 0;
+
+
+            input {
+                border-radius: 10px;
+                padding: 5px 25px;
+            }
+        }
+    }
+}
 </style>

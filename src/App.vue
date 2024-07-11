@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  QUESTO E' APP.VUE
+
   <div id="app">
     <AppHeader />
 
