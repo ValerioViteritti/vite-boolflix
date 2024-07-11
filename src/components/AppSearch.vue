@@ -1,10 +1,23 @@
 <script>
 // Importa la gestione dello stato
-import { store } from '../store.js'
-
+import { movieStore } from '../store.js'
+import { serieTvStore } from '../store.js'
 
 export default {
     name: 'AppSearch',
+
+    data() {
+        return {
+            movieStore,  // Associa lo store ai dati del componente
+        }
+    },
+    methods: {
+        restSearch() {
+            movieStore.movieSearchText = '';
+
+            this.$emit('search');
+        }
+    }
 
 }
 
@@ -16,7 +29,12 @@ export default {
     <DIV class="container">
         <DIV class="row d-flex justify-content-between align-items-center">
             <div id="logo" class="col-3">BOOLFLIX</div>
-            <div class="col-3"><input type="text" placeholder="Cerca un Film o una Serie Tv"></div>
+            <div class="col-5 d-flex gap-3">
+                <label for="search-film">cerca un film</label>
+                <input type="text" placeholder="Cerca un Film o una Serie Tv" v-model="movieStore.movieSearchText">
+                <button type="submit" @click.prevent="$emit('search')">Cerca</button>
+                <button type="reset" @click.prevent="restSearch">Reset</button>
+            </div>
 
         </DIV>
     </DIV>
@@ -44,6 +62,10 @@ export default {
             input {
                 border-radius: 10px;
                 padding: 5px 25px;
+            }
+
+            button {
+                border-radius: 10px;
             }
         }
     }

@@ -1,6 +1,7 @@
 <script>
 // Importa la gestione dello stato
-import { store } from '../store.js'
+import { movieStore } from '../store.js'
+import { serieTvStore } from '../store.js'
 
 import AppSearch from "./AppSearch.vue"
 
@@ -18,7 +19,7 @@ export default {
 <template>
     <header>
 
-        <AppSearch />
+        <AppSearch @search="getFilms" />
 
     </header>
 

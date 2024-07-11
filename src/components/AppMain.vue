@@ -1,6 +1,7 @@
 <script>
 // Importa la gestione dello stato
-import { store } from '../store.js'
+import { movieStore } from '../store.js'
+import { serieTvStore } from '../store.js'
 
 import AppFilmCard from "./AppFilmCard.vue";
 

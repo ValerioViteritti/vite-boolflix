@@ -1,7 +1,8 @@
 <script>
 
 // Importa la gestione dello stato
-import { store } from '../store.js'
+import { movieStore } from '../store.js'
+import { serieTvStore } from '../store.js'
 
 
 export default {
@@ -13,6 +14,7 @@ export default {
 
 <template>
     QUESTO E' APPFILMCARD
+
 
 </template>
 
