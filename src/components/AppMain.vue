@@ -25,6 +25,9 @@ export default {
 <template>
     <div class="container">
         <div class="row display-flex">
+            <!-- <div v-for="image in movieStore.imageList" :key="image.id" class="col-3">
+                <AppFilmCard :img="image"/>
+            </div> -->
             <div v-for="movie in movieStore.movieList" :key="movie.id" class="col-3">
                 <AppFilmCard :info="movie"/>
             </div>

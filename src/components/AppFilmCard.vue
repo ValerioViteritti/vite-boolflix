@@ -7,7 +7,7 @@ import { serieTvStore } from '../store.js'
 
 export default {
     name: 'AppFilmCard',
-    props:['info'],
+    props:['info', 'img'],
     data() {
         return{
             movieStore,
@@ -40,11 +40,19 @@ export default {
 </script>
 
 <template>
-    <div class="cardFilm my-3 p-2 text-center">
-        <h3>{{info.original_title}}</h3>
-        <span>{{convertToRange(info.vote_average)}}</span>
-        <p>{{info.overview}}</p>
+    <div>
+        <div class="imageFilm">
+            <img :src="`${movieStore.imageUrlFilm}${info.poster_path}`" :alt='`${info.original_title}`'>
+        </div>
+        
+        <div class="cardFilm my-3 p-2 text-center">
+            <h3>{{info.original_title}}</h3>
+            <span>{{convertToRange(info.vote_average)}}</span>
+            <p>{{info.overview}}</p>
+        </div>
+
     </div>
+    
 
 
 </template>
