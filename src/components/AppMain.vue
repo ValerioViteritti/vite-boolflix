@@ -10,6 +10,12 @@ export default {
     name: 'AppMain',
     components: {
         AppFilmCard,
+    },
+    data(){
+        return {
+            movieStore,
+            serieTvStore
+        }
     }
 
 }
@@ -19,18 +25,10 @@ export default {
 <template>
     <div class="container">
         <div class="row display-flex">
-            <div class="col-3">
-                <AppFilmCard />
+            <div v-for="movie in movieStore.movieList" :key="movie.id" class="col-3">
+                <AppFilmCard :info="movie"/>
             </div>
-            <div class="col-3">
-                <AppFilmCard />
-            </div>
-            <div class="col-3">
-                <AppFilmCard />
-            </div>
-            <div class="col-3">
-                <AppFilmCard />
-            </div>
+            
 
 
         </div>
