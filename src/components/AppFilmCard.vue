@@ -13,6 +13,26 @@ export default {
             movieStore,
             serieTvStore
         }
+    },
+    methods: {
+        convertToRange(value) {
+            let num = parseFloat(value);
+            if(num <= 1 ) {
+                return 'o';
+            }
+            if (num <= 3 ) {
+                return 'oo';
+            }
+            if (num <= 5 ) {
+                return 'ooo';
+            }
+            if  (num <= 7 ) {
+                return 'oooo';
+            }
+            else if(num <= 10 ) {
+                return 'ooooo';
+            }
+        }
     }
 
 }
@@ -22,7 +42,7 @@ export default {
 <template>
     <div class="cardFilm my-3 p-2 text-center">
         <h3>{{info.original_title}}</h3>
-        <span>{{info.vote_average}}</span>
+        <span>{{convertToRange(info.vote_average)}}</span>
         <p>{{info.overview}}</p>
     </div>
 
@@ -38,6 +58,7 @@ export default {
 .cardFilm{
     height: 600px;
     border: 2px solid black;
+    overflow-y: scroll;
 
 }
 
