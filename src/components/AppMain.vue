@@ -28,7 +28,7 @@ export default {
             <!-- <div v-for="image in movieStore.imageList" :key="image.id" class="col-3">
                 <AppFilmCard :img="image"/>
             </div> -->
-            <div v-for="movie in movieStore.movieList" :key="movie.id" class="col-3">
+            <div v-for="movie in movieStore.movieList" :key="movie.id" class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <AppFilmCard :info="movie"/>
             </div>
             

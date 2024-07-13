@@ -40,18 +40,22 @@ export default {
 </script>
 
 <template>
-    <div>
-        <div class="imageFilm">
-            <img :src="`${movieStore.imageUrlFilm}${info.poster_path}`" :alt='`${info.original_title}`'>
-        </div>
-        
-        <div class="cardFilm my-3 p-2 text-center">
-            <h3>{{info.original_title}}</h3>
-            <span>{{convertToRange(info.vote_average)}}</span>
-            <p>{{info.overview}}</p>
+    <div id="baseCard" class="my-3">
+        <div id="flipCard">
+            <div class="col-3 my-3 imageFilm">
+                <img :src="`${movieStore.imageUrlFilm}${info.poster_path}`" :alt='`${info.original_title}`'>
+            </div>
+            
+            <div class="cardFilm my-3 p-2 text-center">
+                <h3>{{info.original_title}}</h3>
+                <span>{{convertToRange(info.vote_average)}}</span>
+                <p>{{info.overview}}</p>
+            </div>
+
         </div>
 
     </div>
+    
     
 
 
@@ -62,12 +66,62 @@ export default {
 @use 'src/style/general.scss' as *;
 // Importa le variabili degli stili
 @use 'src/style/partials/_variables.scss' as *;
+div#baseCard{
 
-.cardFilm{
-    height: 600px;
-    border: 2px solid black;
-    overflow-y: scroll;
+    height: 500px;
+
+    // rotate system front
+    &:hover div#flipCard{
+            transform: rotateY(180deg);
+        }
+    
+    div#flipCard{
+        height: 100%;
+
+        // rotate system front
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+
+        
+
+        .imageFilm{
+            width: 100%;
+            height: 100%;
+            // rotate system front
+            position: absolute;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+
+
+            img{
+                height: 100%;
+                width: 100%;
+
+            }
+            
+
+        }
+
+        .cardFilm{
+        height: 100%;
+        border: 2px solid black;
+        overflow-y: scroll;
+
+        // rotate system back
+        position: absolute;
+        transform: rotateY(180deg);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        }
+
+    }
 
 }
+
+
+
 
 </style>
