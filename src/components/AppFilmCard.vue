@@ -81,7 +81,7 @@ div#baseCard{
         // rotate system
         position: relative;
         transform-style: preserve-3d;
-        transition: transform 0.6s;
+        transition: transform 1.0s;
 
         
 
@@ -109,6 +109,8 @@ div#baseCard{
         height: 100%;
         border: 2px solid black;
         overflow-y: scroll;
+        background-color: black;
+        color: white;
 
         // rotate system back
         position: absolute;

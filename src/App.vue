@@ -58,7 +58,7 @@ export default {
 <template>
 
   <div id="app">
-    <AppHeader />
+    <!-- <AppHeader /> -->
     <AppSearch @search="getFilms" />
 
     <main>
@@ -78,5 +78,7 @@ export default {
 // Importa le variabili degli stili
 @use 'src/style/partials/_variables.scss' as *;
 
-main {}
+main {
+  background-color: $theme-2;
+}
 </style>
