@@ -70,7 +70,7 @@ div#baseCard{
 
     height: 500px;
 
-    // rotate system front
+    // rotate system
     &:hover div#flipCard{
             transform: rotateY(180deg);
         }
@@ -78,7 +78,7 @@ div#baseCard{
     div#flipCard{
         height: 100%;
 
-        // rotate system front
+        // rotate system
         position: relative;
         transform-style: preserve-3d;
         transition: transform 0.6s;
@@ -88,6 +88,7 @@ div#baseCard{
         .imageFilm{
             width: 100%;
             height: 100%;
+
             // rotate system front
             position: absolute;
             -webkit-backface-visibility: hidden;
