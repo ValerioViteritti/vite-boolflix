@@ -7,7 +7,6 @@ import { movieStore } from './store.js'
 import { serieTvStore } from './store.js'
 
 // importa componenti
-import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
 import AppSearch from "./components/AppSearch.vue"
 
@@ -15,7 +14,6 @@ import AppSearch from "./components/AppSearch.vue"
 export default {
   name: "App", // Nome del componente principale
   components: {
-    AppHeader, // Componente per l'intestazione dell'app
     AppMain,
     AppSearch // Componente del Main
 
@@ -58,7 +56,6 @@ export default {
 <template>
 
   <div id="app">
-    <!-- <AppHeader /> -->
     <AppSearch @search="getFilms" />
 
     <main>
