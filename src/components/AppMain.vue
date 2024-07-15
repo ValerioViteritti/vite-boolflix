@@ -1,20 +1,22 @@
 <script>
 // Importa la gestione dello stato
-import { movieStore } from '../store.js'
-import { serieTvStore } from '../store.js'
+import { Store } from '../store.js'
+
 
 import AppFilmCard from "./AppFilmCard.vue";
-
+import AppSerieTvCard from "./AppSerieTvCard.vue";
 
 export default {
     name: 'AppMain',
     components: {
         AppFilmCard,
+        AppSerieTvCard
+        
     },
     data(){
         return {
-            movieStore,
-            serieTvStore
+            Store,
+            
         }
     }
 
@@ -26,11 +28,13 @@ export default {
     <div class="container">
         <div class="row display-flex">
             <div class="piattaforma text-center fw-bold my-3">-> FILM <-</div>
-            <div v-for="movie in movieStore.movieList" :key="movie.id" class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+            <div v-for="movie in Store.movieList" :key="movie.id" class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <AppFilmCard :info="movie"/>
             </div>
             <div class="piattaforma text-center fw-bold my-3">-> SERIE TV <-</div>
-            
+            <div v-for="serieTv in Store.serieTvList" :key="serieTv.id" class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <AppSerieTvCard :info="serieTv"/>
+            </div>
 
 
         </div>

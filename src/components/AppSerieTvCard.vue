@@ -6,7 +6,7 @@ import { Store } from '../store.js'
 
 
 export default {
-    name: 'AppFilmCard',
+    name: 'AppSerieTvCard',
     props:['info', 'img'],
     data() {
         return{
@@ -48,10 +48,10 @@ export default {
             
             <div class="cardFilm my-3 p-2 text-start">
                 <div>
-                    <span class="fw-bold">Titolo: </span><span>{{ info.title }}</span>
+                    <span class="fw-bold">Titolo: </span><span>{{ info.name }}</span>
                 </div>
                 <div>
-                    <span class="fw-bold">Titolo Originale: </span><span>{{info.original_title}}</span>
+                    <span class="fw-bold">Titolo Originale: </span><span>{{info.original_name}}</span>
                 </div>
                 <div class="text-center">{{ info.original_language}}</div>
                 

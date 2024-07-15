@@ -3,8 +3,8 @@
 import axios from 'axios'
 
 // Importa la gestione dello stato
-import { movieStore } from './store.js'
-import { serieTvStore } from './store.js'
+import { Store } from './store.js'
+// import { serieTvStore } from './store.js'
 
 // importa componenti
 import AppMain from './components/AppMain.vue'
@@ -20,25 +20,37 @@ export default {
   },
   data() {
     return {
-      movieStore,  // Associa lo store ai dati del componente
+      Store,  // Associa lo store ai dati del componente
     }
   },
   methods: {
     getFilms() {
-      let endFilmPoint = movieStore.apiURl;
-
+      
       // se si avvia una ricerca aggiungiamo la query
 
-      if (movieStore.movieSearchText !== '') {
-        endFilmPoint += `${movieStore.movieSearchText}`
+      if (Store.SearchText !== '') {
 
-      }
+        let endFilmPoint = Store.apiURl;
+        let endSeriePoint = Store.api2URl;
+        
+        endFilmPoint += `${Store.SearchText}`
+        endSeriePoint += `${Store.SearchText}`
+      
 
       axios.
         get(endFilmPoint)
         .then(res => {
           console.log(res.data.results);
-          movieStore.movieList = res.data.results;
+          Store.movieList = res.data.results;
+        })
+        .catch(err => {
+          console.error(err);
+        });
+        axios.
+        get(endSeriePoint)
+        .then(res => {
+          console.log(res.data.results);
+          Store.serieTvList = res.data.results;
         })
         .catch(err => {
           console.error(err);
@@ -49,7 +61,7 @@ export default {
     this.getFilms();
   }
 }
-
+}
 
 </script>
 

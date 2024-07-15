@@ -1,27 +1,27 @@
 <script>
 // Importa la gestione dello stato
-import { movieStore } from '../store.js'
-import { serieTvStore } from '../store.js'
+import { Store } from '../store.js'
+// import { serieTvStore } from '../store.js'
 
 export default {
     name: 'AppHeader',
 
     data() {
         return {
-            movieStore,  // Associa lo store ai dati del componente
+            Store,  // Associa lo store ai dati del componente
+            // serieTvStore,
         }
     },
     methods: {
         restSearch() {
-            movieStore.movieSearchText = '';
-
+            Store.SearchText = '';
             this.$emit('search');
         },
         enterCerca(event) {
             if (event.key === 'Enter') {
                 this.$emit('search');
             }
-        }
+        },
         
     }
 
@@ -38,7 +38,7 @@ export default {
                 <div id="logo" class="col-xl-3 col-lg-3 col-md-2 col-sm-2 fw-bold">BOOLFLIX</div>
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-12 d-flex gap-3">
                     <label for="search-film">cerca un film</label>
-                    <input type="text" placeholder="Cerca un Film o una Serie Tv" v-model="movieStore.movieSearchText" @keydown="enterCerca">
+                    <input type="text" placeholder="Cerca un Film o una Serie Tv" v-model="Store.SearchText" @keydown="enterCerca">
                     <button type="submit" @click.prevent="$emit('search')">Cerca</button>
                     <button type="reset" @click.prevent="restSearch">Reset</button>
                 </div>
