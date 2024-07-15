@@ -25,10 +25,11 @@ export default {
 <template>
     <div class="container">
         <div class="row display-flex">
-            <div class="piattaforma text-center fw-bold">-> FILM <-</div>
+            <div class="piattaforma text-center fw-bold my-3">-> FILM <-</div>
             <div v-for="movie in movieStore.movieList" :key="movie.id" class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <AppFilmCard :info="movie"/>
             </div>
+            <div class="piattaforma text-center fw-bold my-3">-> SERIE TV <-</div>
             
 
 
