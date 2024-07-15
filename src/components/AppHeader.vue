@@ -4,7 +4,7 @@ import { movieStore } from '../store.js'
 import { serieTvStore } from '../store.js'
 
 export default {
-    name: 'AppSearch',
+    name: 'AppHeader',
 
     data() {
         return {
@@ -16,7 +16,13 @@ export default {
             movieStore.movieSearchText = '';
 
             this.$emit('search');
+        },
+        enterCerca(event) {
+            if (event.key === 'Enter') {
+                this.$emit('search');
+            }
         }
+        
     }
 
 }
@@ -29,10 +35,10 @@ export default {
     <header>
         <div class="container">
             <div class="row d-flex justify-content-between align-items-center">
-                <div id="logo" class="col-xl-3 col-lg-3 col-md-2 col-sm-2">BOOLFLIX</div>
+                <div id="logo" class="col-xl-3 col-lg-3 col-md-2 col-sm-2 fw-bold">BOOLFLIX</div>
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-12 d-flex gap-3">
                     <label for="search-film">cerca un film</label>
-                    <input type="text" placeholder="Cerca un Film o una Serie Tv" v-model="movieStore.movieSearchText">
+                    <input type="text" placeholder="Cerca un Film o una Serie Tv" v-model="movieStore.movieSearchText" @keydown="enterCerca">
                     <button type="submit" @click.prevent="$emit('search')">Cerca</button>
                     <button type="reset" @click.prevent="restSearch">Reset</button>
                 </div>
@@ -54,6 +60,7 @@ export default {
 @use 'src/style/partials/_variables.scss' as *;
 header{
     background-color: $theme-1;
+    height: 9vh;
 
     .container {
         

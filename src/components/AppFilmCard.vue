@@ -18,19 +18,19 @@ export default {
         convertToRange(value) {
             let num = parseFloat(value);
             if(num <= 1 ) {
-                return 'o';
+                return '★☆☆☆☆';
             }
             if (num <= 3 ) {
-                return 'oo';
+                return '★★☆☆☆';
             }
             if (num <= 5 ) {
-                return 'ooo';
+                return '★★★☆☆';
             }
             if  (num <= 7 ) {
-                return 'oooo';
+                return '★★★★☆';
             }
             else if(num <= 10 ) {
-                return 'ooooo';
+                return '★★★★★';
             }
         }
     }
@@ -46,10 +46,18 @@ export default {
                 <img :src="`${movieStore.imageUrlFilm}${info.poster_path}`" :alt='`${info.original_title}`'>
             </div>
             
-            <div class="cardFilm my-3 p-2 text-center">
-                <h3>{{info.original_title}}</h3>
-                <span>{{convertToRange(info.vote_average)}}</span>
-                <p>{{info.overview}}</p>
+            <div class="cardFilm my-3 p-2 text-start">
+                <div>
+                    <span class="fw-bold">Titolo: </span><span>{{ info.title }}</span>
+                </div>
+                <div>
+                    <span class="fw-bold">Titolo Originale: </span><span>{{info.original_title}}</span>
+                </div>
+                <div class="text-center">{{ info.original_language}}</div>
+                
+                
+                <span class="fw-bold">Voto: </span><span id="star">{{convertToRange(info.vote_average)}}</span>
+                <p><span class="fw-bold">Sinossi: </span>{{info.overview}}</p>
             </div>
 
         </div>
@@ -106,17 +114,28 @@ div#baseCard{
         }
 
         .cardFilm{
-        height: 100%;
-        border: 2px solid black;
-        overflow-y: scroll;
-        background-color: black;
-        color: white;
+            height: 100%;
+            border: 2px solid black;
+            overflow-y: scroll;
+            background-color: black;
+            color: white;
 
-        // rotate system back
-        position: absolute;
-        transform: rotateY(180deg);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
+            // rotate system back
+            position: absolute;
+            transform: rotateY(180deg);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            
+            h3{
+                font-size: 1rem;
+            }
+            span{
+            
+            }
+            span#star{
+                color: yellow;
+                font-size: 1.6rem;
+            }
 
         }
 

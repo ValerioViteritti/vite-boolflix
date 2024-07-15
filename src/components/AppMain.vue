@@ -25,6 +25,7 @@ export default {
 <template>
     <div class="container">
         <div class="row display-flex">
+            <div class="piattaforma text-center fw-bold">-> FILM <-</div>
             <div v-for="movie in movieStore.movieList" :key="movie.id" class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <AppFilmCard :info="movie"/>
             </div>
@@ -46,5 +47,11 @@ export default {
 @use 'src/style/partials/_variables.scss' as *;
 div.container{
     background-color: $theme-2;
+    min-height: 91vh;
+
+    .piattaforma{
+        color: white;
+        font-size: 2rem;
+    }
 }
 </style>

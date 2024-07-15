@@ -8,14 +8,14 @@ import { serieTvStore } from './store.js'
 
 // importa componenti
 import AppMain from './components/AppMain.vue'
-import AppSearch from "./components/AppSearch.vue"
+import AppHeader from "./components/AppHeader.vue"
 
 
 export default {
   name: "App", // Nome del componente principale
   components: {
     AppMain,
-    AppSearch // Componente del Main
+    AppHeader // Componente del Main
 
   },
   data() {
@@ -56,7 +56,7 @@ export default {
 <template>
 
   <div id="app">
-    <AppSearch @search="getFilms" />
+    <AppHeader @search="getFilms" />
 
     <main>
       <AppMain />
