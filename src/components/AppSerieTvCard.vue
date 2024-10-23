@@ -129,9 +129,7 @@ div#baseCard{
             h3{
                 font-size: 1rem;
             }
-            span{
             
-            }
             span#star{
                 color: yellow;
                 font-size: 1.6rem;

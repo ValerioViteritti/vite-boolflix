@@ -10,10 +10,3 @@ export const Store = reactive({
     SearchText: "",
     imageFilm: 'poster_path',
 });
-
-// export const serieTvStore = reactive({
-    
-//     serieTvSearchText: "",
-//     imageUrlFilm: "https://image.tmdb.org/t/p/w342",
-//     imageFilm: 'poster_path',
-// });
